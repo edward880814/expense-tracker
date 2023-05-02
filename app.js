@@ -2,6 +2,9 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 
 const router = require("./routes");
+
+//connect database
+require("./config/mongoose");
 const PORT = process.env.PORT || 3000
 
 const app = express();
