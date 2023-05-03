@@ -5,6 +5,8 @@ const router = require("./routes");
 
 //connect database
 require("./config/mongoose");
+const methodOverride = require("method-override");
+
 const PORT = process.env.PORT || 3000
 
 const app = express();
@@ -21,6 +23,7 @@ app.use(express.urlencoded({
   extended: true
 }));
 
+app.use(methodOverride("_method"));
 app.use(router);
 
 app.listen(PORT, () => console.log(`Server is listening on http://localhost:${PORT}`));
