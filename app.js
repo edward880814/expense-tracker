@@ -17,6 +17,8 @@ app.engine("hbs", exphbs.engine({
 }));
 
 app.set("view engine", "hbs");
+app.use(express.static("public"));
+
 
 //解析這些表單資料，並將其轉換成JavaScript物件
 app.use(express.urlencoded({

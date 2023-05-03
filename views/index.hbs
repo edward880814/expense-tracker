@@ -31,12 +31,31 @@
     <a href="/records/{{this._id}}/edit" class="btn btn-success">Edit</a>
   </div>
   <div class="col text-center" style="border: none;">
-    <a href="/records/{{this._id}}/delete" class="btn btn-danger">Delete</a>
+        <button type="button" class="btn btn-danger deleBtn" data-bs-toggle="modal" data-bs-target="#deleConfirm"
+          data-id="{{this._id}}" data-name="{{this.name}}" data-amount="{{this.amount}}" data-date="{{this.date}}">
+          刪除
+        </button>
   </div>
 </div>
     {{/each}}
     <a href="/records/create" class="btn btn-create m-3"
       style="border: 1px solid black; background-color: rgb(255, 123, 0); color: white;">新增支出</a>
-
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="deleConfirm" tabindex="-1" aria-labelledby="deleConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleConfirmLabel">確認刪除該筆紀錄？</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-danger">刪除</button>
+        </div>
+      </div>
+    </div>
 </div>
