@@ -6,6 +6,8 @@ const router = require("./routes");
 //connect database
 require("./config/mongoose");
 const methodOverride = require("method-override");
+const session = require("express-session")
+const usePassport = require("./config/passport");
 
 const PORT = process.env.PORT || 3000
 
@@ -30,6 +32,17 @@ app.use(express.urlencoded({
 }));
 
 app.use(methodOverride("_method"));
+
+app.use(
+  session({
+    secret: process.env.SESSION,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+
+usePassport(app);
 app.use(router);
 
 app.listen(PORT, () => console.log(`Server is listening on http://localhost:${PORT}`));
