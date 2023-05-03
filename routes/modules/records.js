@@ -61,4 +61,16 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+//* 刪除支出紀錄
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Record.findByIdAndDelete(id);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Detect Error!");
+  }
+});
+
 module.exports = router;
