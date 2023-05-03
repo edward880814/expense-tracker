@@ -35,31 +35,31 @@ router.post('/', async (req, res) => {
 
 
 //* 修改功能
-router.get("/:id/edit", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const record = await Record.findById(id).lean();
-    record.date = record.date.toISOString().substring(0, 10);
-    const category = await Category.findById(record.categoryId);
-    record.category = category.name;
-    res.render("edit", { record });
-  } catch (err) {
-    console.log(err);
-  }
+router.get("/:id/edit", (req, res) => {
+  const id = req.params.id;
+  Record.findById(id)
+    .lean()
+    .then((record) => {
+      record.date = record.date.toISOString().substring(0, 10);
+      Category.findById(record.categoryId).then((category) => {
+        record.category = category.name;
+        res.render("edit", { record });
+      });
+    });
 });
 
-router.put("/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const record = req.body;
-    const category = await Category.findOne({ name: record.category });
-    record.categoryId = category._id;
-    await Record.findByIdAndUpdate(id, { ...record });
-    res.redirect("/");
-  } catch (err) {
-    console.log(err);
-  }
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+  const record = req.body;
+  Category.findOne({ name: record.category })
+    .then((category) => {
+      record.categoryId = category._id;
+      return Record.findByIdAndUpdate(id, { ...record });
+    })
+    .then(() => res.redirect("/"))
+    .catch((err) => console.log(err));
 });
+
 
 //* 刪除支出紀錄
 router.delete("/:id", async (req, res) => {

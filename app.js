@@ -13,8 +13,12 @@ const app = express();
 
 app.engine("hbs", exphbs.engine({
   defaultLayout: "main",
-  extname: ".hbs"
-}));
+  extname: ".hbs",
+  helpers: {
+    match: (a,b) => a === b,
+  },
+})
+);
 
 app.set("view engine", "hbs");
 app.use(express.static("public"));
