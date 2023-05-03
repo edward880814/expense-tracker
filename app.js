@@ -12,6 +12,7 @@ const app = express();
 app.engine("hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
 app.set("view engine", "hbs");
 
+
 app.use(router);
 
 app.listen(PORT, () => console.log(`Server is listening on http://localhost:${PORT}`));

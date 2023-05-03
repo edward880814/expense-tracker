@@ -15,23 +15,24 @@
   </div>
   
 {{#each records}}
-<div class="row text-start fs-4 mb-2 d-flex align-items-center">
-  <div class="col-2 text-end">
+<div class="row text-start fs-4 mb-2 d-flex align-items-center" style="border: none;">
+  <div class="col-2 text-end" style="border: none;">
     {{{this.categoryIcon}}}
   </div>
-  <div class="col-6 d-flex align-items-center">
+  <div class="col-6 d-flex align-items-center" style="border: none;">
     <div class="name flex-grow-1 d-flex flex-column">
       <div class="fs-3">{{this.name}}</div>
       <div class="fs-6" id="date">{{this.date}}</div>
     </div>
-    <div class="price fs-2 fw-bold">{{this.amount}}</div>
+    <div class="price fs-2 fw-bold" style="border: none;">{{this.amount}}</div>
   </div>
-  <div class="col text-center">
+  <div class="col text-center" style="border: none;">
     <a href="/records/{{this._id}}/edit" class="btn btn-success">Edit</a>
   </div>
-  <div class="col text-center">
+  <div class="col text-center" style="border: none;">
     <a href="/records/{{this._id}}/delete" class="btn btn-danger">Delete</a>
-      </div>
+  </div>
+</div>
     {{/each}}
   </div>
 </div>
