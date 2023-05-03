@@ -9,9 +9,17 @@ const PORT = process.env.PORT || 3000
 
 const app = express();
 
-app.engine("hbs", exphbs.engine({ defaultLayout: "main", extname: ".hbs" }));
+app.engine("hbs", exphbs.engine({
+  defaultLayout: "main",
+  extname: ".hbs"
+}));
+
 app.set("view engine", "hbs");
 
+//解析這些表單資料，並將其轉換成JavaScript物件
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.use(router);
 
