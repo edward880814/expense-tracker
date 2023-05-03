@@ -4,6 +4,7 @@ const home = require("./modules/home");
 const records = require("./modules/records");
 
 const users = require("./modules/users");
+const category = require("./modules/category");
 const { authenticator } = require("../middleware/auth.js");
 
 
