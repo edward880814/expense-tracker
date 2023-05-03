@@ -5,15 +5,15 @@
       <form action="/users/register" method="POST">
         <div class="mb-3">
           <label for="name" class="mb-2">Account</label>
-          <input type="text" id="name" name="name" class="form-control" required />
+          <input type="text" id="name" name="name" class="form-control" placeholder="Enter Email" required />
         </div>
         <div class="mb-3">
           <label for="password" class="mb-2">Password</label>
-          <input type="password" id="password" name="password" class="form-control" required />
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password" required />
         </div>
         <div class="mb-3">
           <label for="confirmPassword" class="mb-2">Confirm password-</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required />
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required />
         </div>
         <div class="d-grid gap-2 col-4 mx-auto ">
           <button type="submit" class="btn btn-primary">Register</button>
@@ -22,7 +22,7 @@
       </form>
       <p class="lead mt-4">
         Already have account?
-        <a href="/users/register" class="btn btn-success ms-3">Log in</a>
+        <a href="/users/login" class="btn btn-success ms-3">Log in</a>
       </p>
     </div>
   </div>
