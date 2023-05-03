@@ -18,13 +18,14 @@ router.get('/create', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const record = req.body;
+    const userId = req.user._id;
     const category = await Category.findOne({ name: record.category });
 
     if (!category) {
       throw new Error('Category not found');
     }
 
-    await Record.create({ ...record, categoryId: category._id });
+    await Record.create({ ...record, categoryId: category._id, userId });
     res.redirect('/');
   } catch (err) {
     console.error(err);

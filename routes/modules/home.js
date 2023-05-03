@@ -2,9 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Record = require("../../models/Record");
 const Category = require("../../models/Category");
+
+
 router.get("/", (req, res) => {
   async function getFormattedRecords() {
-    const records = await Record.find({}).lean().sort({ date: "desc" });
+    const userId = req.user._id;
+    const records = await Record.find({ userId }).lean().sort({ date: "desc" });
     let totalAmount = 0;
     const formattedRecords = await records.reduce(async (accPromise, record) => {
       const acc = await accPromise;

@@ -43,6 +43,13 @@ app.use(
 
 
 usePassport(app);
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(router);
 
 app.listen(PORT, () => console.log(`Server is listening on http://localhost:${PORT}`));
