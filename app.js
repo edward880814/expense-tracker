@@ -37,7 +37,7 @@ app.use(methodOverride("_method"));
 
 app.use(
   session({
-    secret: MY_SECRET,
+    secret: 'MY_SECRET',
     resave: false,
     saveUninitialized: true,
   })
