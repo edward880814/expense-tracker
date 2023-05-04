@@ -6,7 +6,7 @@
 
 ## 安裝流程
 
-1. 使用git bash輸入 git clone <url>
+1. 使用git bash輸入 git clone 
 
 2. cd 專案名稱
 
