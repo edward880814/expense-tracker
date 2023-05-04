@@ -1,8 +1,8 @@
 //為了創建新的紀錄並在資料庫保存他們
 const express = require('express');
 const router = express.Router();
-const Record = require('../../models/Record');
-const Category = require('../../models/Category');
+const Record = require('../../models/record');
+const Category = require('../../models/category');
 
 // 新增紀錄頁面
 router.get('/create', async (req, res) => {

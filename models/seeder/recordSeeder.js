@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const db = require("../../config/mongoose");
 const User = require("../User");
-const Category = require("../Category");
-const Record = require("../Record");
+const Category = require("../category");
+const Record = require("../record");
 const bcrypt = require("bcryptjs");
-const user = { 
+const user = {
   name: "DAD",
   password: "123456"
 };

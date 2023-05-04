@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const db = require("../../config/mongoose");
-const Category = require("../Category");
+const Category = require("../category");
 const category = [
   { name: "家居物業", icon: '<i class="fa-solid fa-house"></i>' },
   { name: "交通出行", icon: '<i class="fa-solid fa-van-shuttle"></i>' },
